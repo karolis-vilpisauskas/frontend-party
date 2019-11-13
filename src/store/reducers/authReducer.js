@@ -1,17 +1,17 @@
 import { LOGIN, LOGOUT } from "../actions/types";
 
-const storage = sessionStorage.getItem("token") || '';
+const sessionToken = sessionStorage.getItem("token") || "";
 
 const initialState = {
-  token: storage
+  token: sessionToken
 };
 export default (state = initialState, action) => {
   switch (action.type) {
     case LOGIN:
-      sessionStorage.setItem("token", action.payload);
+      sessionStorage.setItem("token", action.res_token);
       return {
         ...state,
-        token: action.payload
+        token: action.res_token
       };
     case LOGOUT:
       sessionStorage.removeItem("token");

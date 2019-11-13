@@ -1,40 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
+import axios from "axios";
 import store from "./store";
+import App from "./App";
 
-// Pages
-import Login from "./pages/Login";
-import Servers from "./pages/Servers";
-import NotFound from "./pages/NotFound";
-
-// Routing
-const routes = [
-  {
-    path: "/",
-    component: Login
-  },
-  {
-    path: "/servers",
-    component: Servers
-  }
-];
-
-const computedRoutes = routes.map(route => {
-  return <Route exact path={route.path} component={route.component} />;
-});
-
-const router = (
-  <Provider store={store}>
-    <Router>
-      <Switch>
-        {computedRoutes}
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
-  </Provider>
-);
+axios.defaults.baseURL = "http://playground.tesonet.lt/v1";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 // Renders
-ReactDOM.render(router, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);

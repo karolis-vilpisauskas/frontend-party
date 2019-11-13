@@ -6,21 +6,14 @@ const initialState = {};
 
 const middleware = [thunk];
 
+// DevTools init
 const composeEnhancers =
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-    }) : compose;
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
 
-const enhancer = composeEnhancers(
-  applyMiddleware(...middleware),
-);
+const enhancer = composeEnhancers(applyMiddleware(...middleware));
 
-const store = createStore(
-  rootReducer,
-  initialState,
-  enhancer
-);
+const store = createStore(rootReducer, initialState, enhancer);
 
 export default store;

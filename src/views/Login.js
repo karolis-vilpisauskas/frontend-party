@@ -6,17 +6,17 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const dispatchLogin = () => {
-    dispatch(login);
+    dispatch(login("tesonet", "partyanimal"));
   };
 
   const dispatchLogout = () => {
-    dispatch(logout)
-  }
+    dispatch(logout);
+  };
 
   return (
     <div>
-      <h1 onClick={dispatchLogin}>Login</h1>
-      <h1 onClick={dispatchLogout}>Logout</h1>
+      <button onClick={dispatchLogin}>Login</button>
+      <button onClick={dispatchLogout}>Logout</button>
     </div>
   );
 };
