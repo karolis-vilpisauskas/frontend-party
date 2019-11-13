@@ -1,8 +1,11 @@
 import { applyMiddleware, createStore, compose } from "redux";
 import thunk from "redux-thunk";
+import throttle from "lodash/throttle";
 import rootReducer from "./reducers";
+import { loadState, saveState } from "./sessionStorage";
 
-const initialState = {};
+// Load session storage
+const persistedState = loadState();
 
 const middleware = [thunk];
 
@@ -14,6 +17,13 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(...middleware));
 
-const store = createStore(rootReducer, initialState, enhancer);
+const store = createStore(rootReducer, persistedState, enhancer);
+
+// Save to session storage
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }, 1000)
+);
 
 export default store;
