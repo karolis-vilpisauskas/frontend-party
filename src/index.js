@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
 
 // Pages
 import Login from "./pages/Login";
@@ -24,12 +26,14 @@ const computedRoutes = routes.map(route => {
 });
 
 const router = (
-  <Router>
-    <Switch>
-      {computedRoutes}
-      <Route component={NotFound} />
-    </Switch>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        {computedRoutes}
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
+  </Provider>
 );
 
 // Renders
