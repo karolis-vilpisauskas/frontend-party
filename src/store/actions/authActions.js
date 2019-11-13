@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const login = (username, password) => dispatch => {
   axios
-    .post(`/tokens`, {
+    .post('/tokens', {
       username: username,
       password: password
     })

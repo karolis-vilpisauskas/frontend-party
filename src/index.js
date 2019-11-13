@@ -6,7 +6,7 @@ import store from "./store";
 import App from "./App";
 
 axios.defaults.baseURL = "http://playground.tesonet.lt/v1";
-axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.common["Content-Type"] = "application/json";
 
 // Renders
 ReactDOM.render(
