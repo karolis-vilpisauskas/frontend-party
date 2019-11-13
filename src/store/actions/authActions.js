@@ -8,12 +8,10 @@ export const login = (username, password) => dispatch => {
       password: password
     })
     .then(res => {
-      axios.defaults.headers.common["Authorization"] = res.data.token;
       dispatch({ type: LOGIN, res_token: res.data.token });
     });
 };
 
 export const logout = dispatch => {
-  axios.defaults.headers.common["Authorization"] = "";
   dispatch({ type: LOGOUT });
 };
