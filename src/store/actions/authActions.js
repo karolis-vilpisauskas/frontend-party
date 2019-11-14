@@ -1,14 +1,14 @@
 import { LOGIN, LOGOUT } from "./types";
 import axios from "axios";
 
-export const login = (username, password) => dispatch => {
+export const login = creds => dispatch => {
   axios
-    .post('/tokens', {
-      username: username,
-      password: password
-    })
+    .post("/tokens", creds)
     .then(res => {
       dispatch({ type: LOGIN, res_token: res.data.token });
+    })
+    .catch(error => {
+      console.log(error);
     });
 };
 
