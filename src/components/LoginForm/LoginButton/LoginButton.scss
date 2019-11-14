@@ -18,4 +18,7 @@
   &:hover {
     background-color: $login-button-hover;
   }
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "./types";
+import { LOGIN, LOGOUT, SET_ERRORS } from "./types";
 import axios from "axios";
 
 export const login = creds => dispatch => {
@@ -7,8 +7,8 @@ export const login = creds => dispatch => {
     .then(res => {
       dispatch({ type: LOGIN, res_token: res.data.token });
     })
-    .catch(error => {
-      console.log(error);
+    .catch(err => {
+      dispatch({ type: SET_ERRORS });
     });
 };
 
