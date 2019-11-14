@@ -1,8 +1,8 @@
 import React from "react";
 import "./LoginForm.scss";
 import Input from "./Input";
-import lock from "../../../../assets/ico-lock.svg";
-import user from "../../../../assets/ico-username.svg";
+import lock from "../../assets/ico-lock.svg";
+import user from "../../assets/ico-username.svg";
 
 const LoginForm = () => {
   return (

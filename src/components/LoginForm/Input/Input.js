@@ -2,9 +2,9 @@ import React from "react";
 import "./Input.scss";
 
 const Input = ({ type, action, name, placeholder, value, icon }) => {
-  const onChange = e => {
-    action(e);
-  };
+  // const onChange = e => {
+  //   action(e);
+  // };
 
   return (
     <div className="input-container">
