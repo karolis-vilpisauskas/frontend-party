@@ -1,12 +1,13 @@
 import React from "react";
 import "./LoginForm.scss";
 import Input from "./Input";
+import LoginButton from "./LoginButton";
 import lock from "../../assets/ico-lock.svg";
 import user from "../../assets/ico-username.svg";
 
 const LoginForm = () => {
   return (
-    <div className="form-container">
+    <form id="login-form">
       <Input
         type="text"
         action=""
@@ -23,7 +24,8 @@ const LoginForm = () => {
         value=""
         icon={lock}
       />
-    </div>
+      <LoginButton />
+    </form>
   );
 };
 
