@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../store/actions/authActions";
 
+import LoginContainer from '../components/login/LoginContainer';
+
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -15,8 +17,7 @@ const Login = () => {
 
   return (
     <div>
-      <button onClick={dispatchLogin}>Login</button>
-      <button onClick={dispatchLogout}>Logout</button>
+      <LoginContainer/>
     </div>
   );
 };

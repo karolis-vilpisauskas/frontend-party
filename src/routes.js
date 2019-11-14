@@ -19,7 +19,7 @@ const data = [
     component: Servers
   },
   {
-    id: 404,
+    id: "404",
     path: null,
     component: NotFound
   }
