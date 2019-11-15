@@ -4,6 +4,7 @@
       .cls-1 {
         fill: #2f3254;
         fill-rule: evenodd;
+        transition: all 0.3s ease-in-out;
       }
     </style>
   </defs>
