@@ -1,0 +1,33 @@
+@import "../../../../styles/utils";
+
+.server-header-filter {
+  background: transparent;
+  border: none;
+  color: $gray;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.14;
+  letter-spacing: 1.4px;
+  cursor: pointer;
+  height: 100%;
+  padding: 0;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+
+  .filter-arrow {
+    opacity: 0;
+    display: block;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    transition: all 0.3s linear;
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}

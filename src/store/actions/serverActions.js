@@ -1,4 +1,4 @@
-import { GET_SERVERS, FILTER_SERVERS } from "./types";
+import { GET_SERVERS, FILTER_BY_NAME, FILTER_BY_DIST } from "./types";
 import axios from "axios";
 
 export const getServers = () => dispatch => {
@@ -12,6 +12,16 @@ export const getServers = () => dispatch => {
     });
 };
 
-export const filterServers = (filter, increasing) => dispatch => {
-  dispatch({ type: FILTER_SERVERS, filter, increasing });
+export const filterByName = isAsc => dispatch => {
+  dispatch({
+    type: FILTER_BY_NAME,
+    isAsc
+  });
+};
+
+export const filterByDist = isAsc => dispatch => {
+  dispatch({
+    type: FILTER_BY_DIST,
+    isAsc
+  });
 };
