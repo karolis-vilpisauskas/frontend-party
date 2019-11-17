@@ -2,8 +2,13 @@ import { LOGIN, LOGOUT, SET_ERRORS } from "./types";
 import axios from "axios";
 
 export const login = creds => dispatch => {
+  
+  const computed = {
+    ...creds
+  };
+
   axios
-    .post("/tokens", creds)
+    .post("/tokens", computed)
     .then(res => {
       dispatch({ type: LOGIN, res_token: res.data.token });
     })

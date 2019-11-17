@@ -1,4 +1,5 @@
-import { GET_SERVERS, FILTER_SERVERS } from "../actions/types";
+import { GET_SERVERS, FILTER_BY_NAME, FILTER_BY_DIST } from "../actions/types";
+import sort from "fast-sort";
 
 const initialState = {
   items: []
@@ -9,19 +10,23 @@ export default (state = initialState, action) => {
     case GET_SERVERS:
       return {
         ...state,
-        items: action.servers
+        items: sort(action.servers).asc("name")
       };
-    case FILTER_SERVERS:
-      action.increasing
-        ? state.items.sort((a, b) =>
-            a[action.filter] > b[action.filter] ? 1 : -1
-          )
-        : state.items.sort((a, b) =>
-            a[action.filter] < b[action.filter] ? 1 : -1
-          );
-          
+    case FILTER_BY_NAME:
+      const newArrNames = state.items.slice();
       return {
-        ...state
+        ...state,
+        items: action.isAsc
+          ? sort(newArrNames).desc("name")
+          : sort(newArrNames).asc("name")
+      };
+    case FILTER_BY_DIST:
+      const newArrDist = state.items.slice();
+      return {
+        ...state,
+        items: action.isAsc
+          ? sort(newArrDist).desc("distance")
+          : sort(newArrDist).asc("distance")
       };
     default:
       return state;
