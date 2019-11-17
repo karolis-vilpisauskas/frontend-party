@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SET_ERRORS } from "./types";
+import { LOGIN, LOGOUT, SET_ERRORS, UNAUTHORIZED } from "./types";
 import axios from "axios";
 
 export const login = creds => dispatch => {
@@ -20,3 +20,7 @@ export const login = creds => dispatch => {
 export const logout = dispatch => {
   dispatch({ type: LOGOUT });
 };
+
+export const unauthorized = dispatch => {
+  dispatch({type: UNAUTHORIZED});
+}
