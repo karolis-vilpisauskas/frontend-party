@@ -1,12 +1,12 @@
 import React from "react";
 import "./ServerListItem.scss";
 
-const ServerListItem = server => {
+const ServerListItem = ({ server }) => {
   return (
-    <li className="server-list-item">
-      <span className="server-item-text">{server.server.name}</span>
-      <span className="server-item-text">{`${server.server.distance} km`}</span>
-    </li>
+    <div className="server-list-item">
+      <span className="server-item-text">{server.name}</span>
+      <span className="server-item-text">{`${server.distance} km`}</span>
+    </div>
   );
 };
 

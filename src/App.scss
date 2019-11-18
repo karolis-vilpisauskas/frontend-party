@@ -9,42 +9,20 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: $font;
+  background: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
-.error {
-  max-width: 359px;
-  height: auto;
-  width: 80%;
-  border-radius: 5px;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: $danger;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: 0.4px;
-  color: $white;
-  transition: all 0.5s linear;
-  opacity: 0;
+.app {
   position: absolute;
   top: 0;
-  &.is-active {
-    animation: flash 5s linear ;
-  }
-}
-
-@keyframes flash {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  right: 0;
+  left: 0;
+  bottom: 0;
 }

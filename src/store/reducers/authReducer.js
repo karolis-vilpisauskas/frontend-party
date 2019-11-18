@@ -1,9 +1,10 @@
-import { LOGIN, LOGOUT, SET_ERRORS, UNAUTHORIZED } from "../actions/types";
+import { LOGIN, LOGOUT, SET_ERRORS, SET_SUCCESS } from "../actions/types";
 
 const initialState = {
   token: "",
   isLoggedIn: false,
-  error: ""
+  error: "",
+  success: ""
 };
 
 export default (state = initialState, action) => {
@@ -15,22 +16,24 @@ export default (state = initialState, action) => {
         token: action.res_token,
         isLoggedIn: true
       };
-    case SET_ERRORS:
-      return {
-        ...state,
-        error:
-          "Uh oh! Those credentials don't seem to match anyone we know about"
-      };
     case LOGOUT:
       return {
         ...state,
+        error: "",
         token: "",
         isLoggedIn: false
       };
-    case UNAUTHORIZED:
+    case SET_ERRORS:
       return {
         ...state,
-        error: "You must login before accessing this page"
+        error: action.message,
+        success: ""
+      };
+    case SET_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        success: action.message
       };
     default:
       return state;

@@ -7,11 +7,13 @@ import bgImage from "../../assets/wave.png";
 import LogoWhite from "../../components/LogoWhite";
 import LoginForm from "../../components/LoginForm";
 
+import Error from "../../components/Error";
+
 const Login = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   if (isLoggedIn) {
-    return <Redirect to="/servers" />;
+    return <Redirect push to="/servers" />;
   }
 
   return (
@@ -19,6 +21,7 @@ const Login = () => {
       className="login-container"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
+      <Error />
       <LogoWhite />
       <LoginForm />
     </div>
