@@ -1,9 +1,9 @@
 import React from "react";
 import "./LoginButton.scss";
 
-const LoginButton = () => {
+const LoginButton = ({...props}) => {
   return (
-    <button className="login-btn" type="submit">
+    <button className="login-btn" type="submit" {...props}>
       Log In
     </button>
   );
