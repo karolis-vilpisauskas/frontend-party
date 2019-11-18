@@ -15,6 +15,7 @@ const Input = ({ type, changeAction, name, placeholder, value, icon }) => {
         type={type}
         placeholder={placeholder}
         name={name}
+        value={value}
       />
     </div>
   );
