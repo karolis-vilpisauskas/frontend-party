@@ -1,6 +1,7 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
 import "./Spinner.scss";
+
 const Spinner = () => {
   const props = useSpring({
     to: async (next, cancel) => {

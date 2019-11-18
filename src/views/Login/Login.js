@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login } from "store/actions/authActions";
-import "./Login.scss";
 
 import bgImage from "assets/wave.png";
 import lock from "assets/ico-lock.svg";

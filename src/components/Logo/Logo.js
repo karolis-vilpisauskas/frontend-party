@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Logo.scss";
 
 import black from "assets/logo-black.png";
@@ -15,3 +16,7 @@ const Logo = ({ isBlack }) => {
 };
 
 export default Logo;
+
+Logo.propTypes = {
+  isBlack : PropTypes.bool
+}

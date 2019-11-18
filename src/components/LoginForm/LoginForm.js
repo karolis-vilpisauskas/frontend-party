@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./LoginForm.scss";
 
 const LoginForm = ({onSubmit, children}) => {
@@ -10,3 +11,8 @@ const LoginForm = ({onSubmit, children}) => {
 };
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func,
+  children: PropTypes.array
+}

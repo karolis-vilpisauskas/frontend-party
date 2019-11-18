@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ServerItem.scss";
 
-const ServerListItem = ({ server }) => {
+const ServerItem = ({ server }) => {
   return (
     <div className="server-item">
       <span className="server-text">{server.name}</span>
@@ -10,4 +11,8 @@ const ServerListItem = ({ server }) => {
   );
 };
 
-export default ServerListItem;
+export default ServerItem;
+
+ServerItem.propTypes = {
+  server: PropTypes.object
+}

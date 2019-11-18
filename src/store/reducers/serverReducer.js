@@ -3,7 +3,7 @@ import {
   FILTER_BY_NAME,
   FILTER_BY_DIST,
   TOGGLE_LOADING_SERVERS
-} from "../actions/types";
+} from "store/actions/types";
 import sort from "fast-sort";
 
 const initialState = {

@@ -4,7 +4,7 @@ import {
   SET_ERRORS,
   SET_SUCCESS,
   TOGGLE_LOADING_AUTH
-} from "../actions/types";
+} from "store/actions/types";
 
 const initialState = {
   token: "",

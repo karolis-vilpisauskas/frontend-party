@@ -18,7 +18,6 @@ export const login = creds => dispatch => {
     .then(res => {
       dispatch({ type: LOGIN, res_token: res.data.token });
     })
-    .then(dispatch({ type: SET_SUCCESS, message: "Welcome back!" }))
     .catch(err => {
       dispatch({
         type: SET_ERRORS,

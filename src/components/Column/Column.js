@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Column.scss";
 
 const Column = ({ alignment, children }) => {
@@ -6,3 +7,8 @@ const Column = ({ alignment, children }) => {
 };
 
 export default Column;
+
+Column.propTypes = {
+  alignment: PropTypes.string,
+  children: PropTypes.array
+};

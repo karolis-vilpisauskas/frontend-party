@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ServerList.scss";
 
-const ServerList = ({children}) => {
-  return (
-    <ul className="server-list">
-      {children}
-    </ul>
-  );
+const ServerList = ({ children }) => {
+  return <ul className="server-list">{children}</ul>;
 };
 
 export default ServerList;
+
+ServerList.propTypes = {
+  children: PropTypes.array
+};
