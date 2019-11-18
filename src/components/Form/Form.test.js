@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import LoginForm from "./LoginForm";
+import Form from "./Form";
 afterEach(cleanup);
 
 const createTestProps = props => ({
@@ -11,9 +11,9 @@ const createTestProps = props => ({
 const renderTest = () => {
   const props = createTestProps();
   const { getByTestId } = render(
-    <LoginForm {...props}>
+    <Form {...props}>
       <div data-testid="child" />
-    </LoginForm>
+    </Form>
   );
   const container = getByTestId("form");
   return {
@@ -22,7 +22,7 @@ const renderTest = () => {
   };
 };
 
-describe("LoginForm", () => {
+describe("Form", () => {
   describe("rendering", () => {
     test("it renders it's children", () => {
       const { container, getByTestId } = renderTest();

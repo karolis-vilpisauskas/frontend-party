@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import ServerFilter from "./ServerFilter";
+import List from "./List";
 afterEach(cleanup);
 
 const createTestProps = props => ({
@@ -11,21 +11,23 @@ const createTestProps = props => ({
 const renderTest = () => {
   const props = createTestProps();
   const { getByTestId } = render(
-    <ServerFilter {...props}>
-    </ServerFilter>
+    <List {...props}>
+      <div data-testid="child" />
+    </List>
   );
-  const container = getByTestId("server-filter");
+  const container = getByTestId("list");
   return {
     getByTestId,
     container
   };
 };
 
-describe("ServerFilter", () => {
+describe("List", () => {
   describe("rendering", () => {
-    test("it renders without crashing", () => {
-      const { container } = renderTest();
-      expect(container).toMatchSnapshot();
+    test("it renders it's children", () => {
+      const { container, getByTestId } = renderTest();
+      expect(container.children.length).toBe(1);
+      expect(getByTestId("child")).toBeDefined();
     });
   });
 });

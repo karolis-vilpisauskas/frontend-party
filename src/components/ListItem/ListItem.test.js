@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/extend-expect";
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import ServerItem from "./ServerItem";
+import ListItem from "./ListItem";
 afterEach(cleanup);
 
 const createTestProps = props => ({
@@ -14,15 +14,15 @@ const createTestProps = props => ({
 
 const renderTest = () => {
   const props = createTestProps();
-  const { getByTestId } = render(<ServerItem {...props}></ServerItem>);
-  const container = getByTestId("server-item");
+  const { getByTestId } = render(<ListItem {...props}></ListItem>);
+  const container = getByTestId("list-item");
   return {
     getByTestId,
     container
   };
 };
 
-describe("ServerItem", () => {
+describe("ListItem", () => {
   describe("rendering", () => {
     test("it renders without crashing", () => {
       const { container } = renderTest();

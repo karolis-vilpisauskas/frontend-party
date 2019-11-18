@@ -11,10 +11,10 @@ import { useTrail, animated } from "react-spring";
 import { ReactComponent as IconExit } from "assets/ico-logout.svg";
 
 import Header from "components/Header";
-import ServerList from "components/ServerList";
-import ServerFilter from "components/ServerFilter";
-import ServerHeader from "components/ServerHeader";
-import ServerItem from "components/ServerItem";
+import List from "components/List";
+import ListFilter from "components/ListFilter";
+import ListHeader from "components/ListHeader";
+import ListItem from "components/ListItem";
 import Logo from "components/Logo";
 import Button from "components/Button";
 import Success from "components/Success";
@@ -80,21 +80,21 @@ const Servers = () => {
           <IconExit />
         </Button>
       </Header>
-      <ServerList>
-        <ServerHeader>
-          <ServerFilter
+      <List>
+        <ListHeader>
+          <ListFilter
             handleFilter={handleNameFilter}
             value="name"
             isAsc={isNameAsc}
             label="SERVER"
           />
-          <ServerFilter
+          <ListFilter
             handleFilter={handleDistFilter}
             value="distance"
             isAsc={isDistAsc}
             label="DISTANCE"
           />
-        </ServerHeader>
+        </ListHeader>
         {trail.map(({ x, ...rest }, index) => (
           <animated.li
             key={index}
@@ -103,10 +103,10 @@ const Servers = () => {
               transform: x.interpolate(x => `translateX(${x}px)`)
             }}
           >
-            <ServerItem server={servers[index]} key={index} />
+            <ListItem server={servers[index]} key={index} />
           </animated.li>
         ))}
-      </ServerList>
+      </List>
     </Absolute>
   );
 };

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import ServerHeader from "./ServerHeader";
+import ListHeader from "./ListHeader";
 afterEach(cleanup);
 
 const createTestProps = props => ({
@@ -11,18 +11,18 @@ const createTestProps = props => ({
 const renderTest = () => {
   const props = createTestProps();
   const { getByTestId } = render(
-    <ServerHeader {...props}>
+    <ListHeader {...props}>
       <div data-testid="child" />
-    </ServerHeader>
+    </ListHeader>
   );
-  const container = getByTestId("server-header");
+  const container = getByTestId("list-header");
   return {
     getByTestId,
     container
   };
 };
 
-describe("ServerHeader", () => {
+describe("ListHeader", () => {
   describe("rendering", () => {
     test("it renders it's children", () => {
       const { container, getByTestId } = renderTest();

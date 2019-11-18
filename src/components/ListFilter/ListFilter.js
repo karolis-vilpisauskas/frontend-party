@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import "./ServerFilter.scss";
+import "./ListFilter.scss";
 
-const ServerFilter = ({ handleFilter, value, isAsc, label }) => {
+const ListFilter = ({ handleFilter, value, isAsc, label }) => {
   return (
     <button
-      data-testid="server-filter"
-      className="server-filter"
+      data-testid="list-filter"
+      className="list-filter"
       type="button"
       onClick={handleFilter}
       value={value}
@@ -23,9 +23,9 @@ const ServerFilter = ({ handleFilter, value, isAsc, label }) => {
   );
 };
 
-export default ServerFilter;
+export default ListFilter;
 
-ServerFilter.propTypes = {
+ListFilter.propTypes = {
   handleFilter: PropTypes.func,
   value: PropTypes.string,
   isAsc: PropTypes.bool,

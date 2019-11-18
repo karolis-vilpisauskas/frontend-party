@@ -11,7 +11,7 @@ import Error from "components/Error";
 import Success from "components/Success";
 import Button from "components/Button";
 import Input from "components/Input";
-import LoginForm from "components/LoginForm";
+import Form from "components/Form";
 import Logo from "components/Logo";
 import Absolute from "components/Absolute";
 import Column from "components/Column";
@@ -63,7 +63,7 @@ const Login = () => {
       <Success message={auth.success} />
       <Column alignment="h-center v-center">
         <Logo />
-        <LoginForm onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} id="login">
           <Input
             onChange={handleChange}
             icon={user}
@@ -93,7 +93,7 @@ const Login = () => {
             styleClass="login"
             label="Log In"
           />
-        </LoginForm>
+        </Form>
       </Column>
     </Absolute>
   );
