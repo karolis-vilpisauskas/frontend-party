@@ -1,11 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import "./Error.scss";
 
-const Error = () => {
-  const error = useSelector(state => state.auth.error);
-  
-  return <div className={error ? "error is-active" : "error"}>{error}</div>;
+const Error = ({message}) => {
+  return <div className={message ? "error is-active" : "error"}>{message}</div>;
 };
 
 export default Error;

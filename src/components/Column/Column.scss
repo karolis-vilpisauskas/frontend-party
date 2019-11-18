@@ -1,0 +1,23 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &.h-center {
+    align-items: center;
+  }
+  &.h-start {
+    align-items: flex-start;
+  }
+  &.h-end {
+    align-items: flex-end;
+  }
+  &.v-center {
+    justify-content: center;
+  }
+  &.v-start {
+    justify-content: flex-start;
+  }
+  &.v-end {
+    justify-content: flex-end;
+  }
+}

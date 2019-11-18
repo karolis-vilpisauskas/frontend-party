@@ -1,12 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import "./Success.scss";
 
-const Success = () => {
-  const success = useSelector(state => state.auth.success);
-
+const Success = ({message}) => {
   return (
-    <div className={success ? "success is-active" : "success"}>{success}</div>
+    <div className={message ? "success is-active" : "success"}>{message}</div>
   );
 };
 

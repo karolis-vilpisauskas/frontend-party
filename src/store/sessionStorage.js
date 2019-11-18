@@ -14,6 +14,8 @@ export const loadState = () => {
 
 export const saveState = state => {
   try {
+    state.auth.error = "";
+    state.auth.success = "";
     const serializedState = JSON.stringify(state);
     sessionStorage.setItem("state", serializedState);
   } catch (error) {

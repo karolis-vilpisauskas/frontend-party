@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, compose } from "redux";
-import thunk from "redux-thunk";
 import throttle from "lodash/throttle";
 import rootReducer from "./reducers";
+import thunk from 'redux-thunk'
 import { loadState, saveState } from "./sessionStorage";
 
 // Load session storage

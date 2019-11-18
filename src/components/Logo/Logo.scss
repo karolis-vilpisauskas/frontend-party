@@ -1,0 +1,15 @@
+.logo {
+  width: 80%;
+  height: auto;
+
+  &.black {
+    max-width: 115px;
+    max-height: 30px;
+  }
+
+  &.white {
+    max-width: 246px;
+    max-height: 64px;
+    margin-bottom: 70px;
+  }
+}

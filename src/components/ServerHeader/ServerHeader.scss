@@ -1,0 +1,11 @@
+@import "styles/utils";
+
+.server-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 58px;
+  padding: 0 15px;
+  border-top: solid 1px $border;
+  background: $light-gray;
+}

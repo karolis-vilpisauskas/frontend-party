@@ -34,12 +34,14 @@ export default (state = initialState, action) => {
     case SET_ERRORS:
       return {
         ...state,
-        error: action.message
+        error: action.message,
+        success: ""
       };
     case SET_SUCCESS:
       return {
         ...state,
-        success: action.message
+        success: action.message,
+        error: ""
       };
     case TOGGLE_LOADING_AUTH:
       return {

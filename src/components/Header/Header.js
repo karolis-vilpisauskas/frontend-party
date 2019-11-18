@@ -1,14 +1,10 @@
 import React from "react";
 import "./Header.scss";
 
-import LogoBlack from "./LogoBlack";
-import LogoutButton from "./LogoutButton";
-
-const Header = () => {
+const Header = ({children}) => {
   return (
     <div className="header">
-      <LogoBlack />
-      <LogoutButton />
+      {children}
     </div>
   );
 };

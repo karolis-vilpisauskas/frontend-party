@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
 
-import ViewContainer from "./views/ViewContainer";
+import Views from "views/Views";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <ViewContainer />
+      <Views />
     </BrowserRouter>
   );
 };

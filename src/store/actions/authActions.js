@@ -32,5 +32,5 @@ export const login = creds => dispatch => {
 
 export const logout = dispatch => {
   dispatch({ type: LOGOUT });
-  dispatch({ type: SET_SUCCESS, message: "" });
+  dispatch({ type: SET_SUCCESS, message: "Logged out succesfully" });
 };

@@ -1,0 +1,58 @@
+@import "styles/utils";
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.logout {
+    color: $logout-button;
+    background: transparent;
+    padding: 10px;
+
+    &:hover {
+      color: $logout-hover;
+      .cls-1 {
+        fill: $logout-hover;
+      }
+    }
+
+    .btn-label {
+      margin-left: 15px;
+      padding-top: 2px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 2.14;
+      letter-spacing: 0.35px;
+      text-align: left;
+    }
+  }
+
+  &.login {
+    max-width: 361px;
+    height: 56px;
+    width: 80%;
+
+    background-color: $login-button;
+    margin-top: 20px;
+    color: $white;
+    &:hover {
+      background-color: $login-button-hover;
+    }
+
+    .btn-label {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.88;
+      letter-spacing: 0.4px;
+    }
+  }
+}
