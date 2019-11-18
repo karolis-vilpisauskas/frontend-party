@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import axios from "axios";
+import * as serviceWorker from "serviceWorker";
 import App from "./App";
 
 axios.defaults.baseURL = "http://playground.tesonet.lt/v1";
@@ -20,3 +21,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+serviceWorker.register();
