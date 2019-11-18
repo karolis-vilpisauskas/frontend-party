@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e0102b7e.chunk.css",
+    "main.js": "/static/js/main.aaa5663f.chunk.js",
+    "main.js.map": "/static/js/main.aaa5663f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2c7d9cb5.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2c7d9cb5.js.map",
+    "static/js/2.7eee58b0.chunk.js": "/static/js/2.7eee58b0.chunk.js",
+    "static/js/2.7eee58b0.chunk.js.map": "/static/js/2.7eee58b0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e956759a421c96c1babfd401d2a68bf1.js": "/precache-manifest.e956759a421c96c1babfd401d2a68bf1.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e0102b7e.chunk.css.map": "/static/css/main.e0102b7e.chunk.css.map",
+    "static/media/ico-lock.svg": "/static/media/ico-lock.967a93a7.svg",
+    "static/media/ico-logout.f95896fd.svg": "/static/media/ico-logout.f95896fd.svg",
+    "static/media/ico-username.svg": "/static/media/ico-username.7791427e.svg",
+    "static/media/wave.png": "/static/media/wave.c3be98e3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c7d9cb5.js",
+    "static/js/2.7eee58b0.chunk.js",
+    "static/css/main.e0102b7e.chunk.css",
+    "static/js/main.aaa5663f.chunk.js"
+  ]
+}
