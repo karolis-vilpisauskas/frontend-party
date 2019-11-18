@@ -9,9 +9,9 @@ import ServerList from "../../components/ServerList";
 import Success from "../../components/Success";
 
 const Servers = () => {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const auth = useSelector(state => state.auth);
 
-  if (!isLoggedIn) {
+  if (!auth.isLoggedIn) {
     return <Redirect push to="/" />;
   }
 
