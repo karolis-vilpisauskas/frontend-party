@@ -1,9 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./Input.scss";
 
-const Input = ({ type, changeAction, name, placeholder, value, icon }) => {
+const Input = ({
+  onChangeAction,
+  icon,
+  error,
+  ...rest
+}) => {
   const handleChange = e => {
-    changeAction(e);
+    onChangeAction(e.target.name, e.target.value);
   };
 
   return (
@@ -12,10 +19,11 @@ const Input = ({ type, changeAction, name, placeholder, value, icon }) => {
       <input
         onChange={handleChange}
         className="input-field"
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        value={value}
+        {...rest}
+      />
+      <FontAwesomeIcon
+        icon={error ? faTimes : faCheck}
+        className={error ? "validation-icon is-error" : "validation-icon is-success"}
       />
     </div>
   );

@@ -10,6 +10,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 20px;
+  position: relative;
   &:first-child {
     margin-top: 0;
   }
@@ -27,7 +28,7 @@
     line-height: 1.88;
     letter-spacing: 0.4px;
     width: 100%;
-    padding-right: 2rem;
+    padding-right: 0.5rem;
     padding-top: 5px;
     color: $input-active;
     &::placeholder {
@@ -35,6 +36,20 @@
     }
     &:focus {
       outline: none;
+    }
+  }
+
+  .validation-icon {
+    margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+    min-width: 20px;
+    &.is-error {
+      color: $danger;
+      font-size: 18px;
+    }
+    &.is-success {
+      color: $success;
+      font-size: 16px;
     }
   }
 }

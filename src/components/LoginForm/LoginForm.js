@@ -11,12 +11,26 @@ import user from "../../assets/ico-username.svg";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const [creds, setCreds] = useState({ username: "", password: "" });
+  const [errors, setErrors] = useState({ username: false, password: false });
 
-  const handleChange = e => {
-    setCreds({
-      ...creds,
-      [e.target.name]: e.target.value
-    });
+  const regex = /^$|\s+/;
+
+  const handleChange = (name, value) => {
+    if (!value.match(regex)) {
+      setErrors({
+        ...errors,
+        [name]: false
+      });
+      setCreds({
+        ...creds,
+        [name]: value
+      });
+    } else {
+      setErrors({
+        ...errors,
+        [name]: true
+      });
+    }
   };
 
   const handleSubmit = event => {
@@ -27,22 +41,29 @@ const LoginForm = () => {
   return (
     <form id="login-form" onSubmit={handleSubmit}>
       <Input
-        type="text"
-        changeAction={handleChange}
+        onChangeAction={handleChange}
+        icon={user}
+        error={errors.username}
         name="username"
         placeholder="Username"
-        value={creds.username}
-        icon={user}
+        type="text"
+        required={true}
+        autoFocus={true}
       />
       <Input
+        onChangeAction={handleChange}
+        icon={lock}
+        error={errors.password}
         type="password"
-        changeAction={handleChange}
         name="password"
         placeholder="Password"
-        value={creds.password}
-        icon={lock}
+        required={true}
       />
-      <LoginButton />
+      <LoginButton
+        disabled={
+          errors.password !== true && errors.username !== true ? false : true
+        }
+      />
     </form>
   );
 };

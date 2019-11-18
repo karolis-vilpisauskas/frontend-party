@@ -1,4 +1,10 @@
-import { LOGIN, LOGOUT, SET_ERRORS, SET_SUCCESS, TOGGLE_LOADING_AUTH } from "../actions/types";
+import {
+  LOGIN,
+  LOGOUT,
+  SET_ERRORS,
+  SET_SUCCESS,
+  TOGGLE_LOADING_AUTH
+} from "../actions/types";
 
 const initialState = {
   token: "",
@@ -39,7 +45,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: !state.loading
-      }
+      };
     default:
       return state;
   }
