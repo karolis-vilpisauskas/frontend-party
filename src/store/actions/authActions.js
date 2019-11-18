@@ -1,4 +1,10 @@
-import { LOGIN, LOGOUT, SET_ERRORS, SET_SUCCESS } from "./types";
+import {
+  LOGIN,
+  LOGOUT,
+  SET_ERRORS,
+  SET_SUCCESS,
+  TOGGLE_LOADING_AUTH
+} from "./types";
 import axios from "axios";
 
 export const login = creds => dispatch => {
@@ -8,9 +14,11 @@ export const login = creds => dispatch => {
 
   axios
     .post("/tokens", computed)
+    .then(dispatch({ type: TOGGLE_LOADING_AUTH }))
     .then(res => {
       dispatch({ type: LOGIN, res_token: res.data.token });
       dispatch({ type: SET_SUCCESS, message: "Welcome back!" });
+      dispatch({ type: TOGGLE_LOADING_AUTH });
     })
     .catch(err => {
       dispatch({

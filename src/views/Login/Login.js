@@ -10,9 +10,9 @@ import LoginForm from "../../components/LoginForm";
 import Error from "../../components/Error";
 
 const Login = () => {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const auth = useSelector(state => state.auth);
 
-  if (isLoggedIn) {
+  if (auth.isLoggedIn) {
     return <Redirect push to="/servers" />;
   }
 

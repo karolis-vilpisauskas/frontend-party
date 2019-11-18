@@ -1,8 +1,14 @@
-import { GET_SERVERS, FILTER_BY_NAME, FILTER_BY_DIST } from "../actions/types";
+import {
+  GET_SERVERS,
+  FILTER_BY_NAME,
+  FILTER_BY_DIST,
+  TOGGLE_LOADING_SERVERS
+} from "../actions/types";
 import sort from "fast-sort";
 
 const initialState = {
-  items: []
+  items: [],
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -27,6 +33,11 @@ export default (state = initialState, action) => {
         items: action.isAsc
           ? sort(newArrDist).desc("distance")
           : sort(newArrDist).asc("distance")
+      };
+    case TOGGLE_LOADING_SERVERS:
+      return {
+        ...state,
+        loading: !state.loading
       };
     default:
       return state;
