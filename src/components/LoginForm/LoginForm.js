@@ -14,5 +14,5 @@ export default LoginForm;
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func,
-  children: PropTypes.object
+  children: PropTypes.array
 }

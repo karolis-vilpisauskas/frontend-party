@@ -10,5 +10,5 @@ export default Column;
 
 Column.propTypes = {
   alignment: PropTypes.string,
-  children: PropTypes.object
+  children: PropTypes.array
 };

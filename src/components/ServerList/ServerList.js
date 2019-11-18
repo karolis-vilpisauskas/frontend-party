@@ -9,5 +9,5 @@ const ServerList = ({ children }) => {
 export default ServerList;
 
 ServerList.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.array
 };

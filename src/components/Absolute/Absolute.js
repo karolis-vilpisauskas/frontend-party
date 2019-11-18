@@ -9,6 +9,6 @@ return <div className="absolute" data-testid="absolute-container" style={style}>
 export default Absolute;
 
 Absolute.propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.array,
     style: PropTypes.object
 }

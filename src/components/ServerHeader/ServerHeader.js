@@ -9,5 +9,5 @@ const ServerHeader = ({ children }) => {
 export default ServerHeader;
 
 ServerHeader.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.array
 };
