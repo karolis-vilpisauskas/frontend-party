@@ -7,6 +7,7 @@ import "./ServerFilter.scss";
 const ServerFilter = ({ handleFilter, value, isAsc, label }) => {
   return (
     <button
+      data-testid="server-filter"
       className="server-filter"
       type="button"
       onClick={handleFilter}

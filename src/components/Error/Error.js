@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import "./Error.scss";
 
 const Error = ({ message }) => {
-  return <div className={message ? "error is-active" : "error"}>{message}</div>;
+  return (
+    <div className={message ? "error is-active" : "error"} data-testid="error">
+      {message}
+    </div>
+  );
 };
 
 export default Error;

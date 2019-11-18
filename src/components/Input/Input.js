@@ -10,7 +10,7 @@ const Input = ({ onChange, icon, error, ...rest }) => {
   };
 
   return (
-    <div className="input-container">
+    <div data-testid="input" className="input-container">
       {icon ? <img src={icon} alt="icon" className="input-icon" /> : null}
       <input onChange={handleChange} className="input-field" {...rest} />
       <FontAwesomeIcon

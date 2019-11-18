@@ -4,7 +4,12 @@ import "./Success.scss";
 
 const Success = ({ message }) => {
   return (
-    <div className={message ? "success is-active" : "success"}>{message}</div>
+    <div
+      data-testid="success"
+      className={message ? "success is-active" : "success"}
+    >
+      {message}
+    </div>
   );
 };
 

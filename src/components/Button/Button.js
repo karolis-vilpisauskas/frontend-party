@@ -8,9 +8,10 @@ const Button = ({ onClick, children, styleClass, label, ...props }) => {
       {...props}
       className={`btn ${styleClass}`}
       onClick={onClick}
+      data-testid="btn"
     >
       {children}
-      <span className="btn-label">{label}</span>
+      <span className="btn-label" data-testid="label">{label}</span>
     </button>
   );
 };

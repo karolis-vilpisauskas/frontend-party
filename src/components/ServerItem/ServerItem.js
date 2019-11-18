@@ -4,7 +4,7 @@ import "./ServerItem.scss";
 
 const ServerItem = ({ server }) => {
   return (
-    <div className="server-item">
+    <div className="server-item" data-testid="server-item">
       <span className="server-text">{server.name}</span>
       <span className="server-text">{`${server.distance} km`}</span>
     </div>

@@ -4,7 +4,7 @@ import "./Header.scss";
 
 const Header = ({children}) => {
   return (
-    <div className="header">
+    <div className="header" data-testid="header">
       {children}
     </div>
   );
@@ -13,5 +13,5 @@ const Header = ({children}) => {
 export default Header;
 
 Header.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }

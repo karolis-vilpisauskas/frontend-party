@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import "./Container.scss";
 
 const Container = ({ children }) => {
-  return <div className="container">{children}</div>;
+  return <div className="container" data-testid="container">{children}</div>;
 };
 
 export default Container;
 
 Container.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 };

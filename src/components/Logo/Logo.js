@@ -8,6 +8,7 @@ import white from "assets/logo-white.png";
 const Logo = ({ isBlack }) => {
   return (
     <img
+      data-testid="logo"
       className={`logo ${isBlack ? "black" : "white"}`}
       src={isBlack ? black : white}
       alt="logo"
@@ -18,5 +19,5 @@ const Logo = ({ isBlack }) => {
 export default Logo;
 
 Logo.propTypes = {
-  isBlack : PropTypes.bool
-}
+  isBlack: PropTypes.bool
+};
