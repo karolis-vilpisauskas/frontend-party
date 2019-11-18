@@ -1,13 +1,15 @@
 @import "styles/utils";
 
 * {
-  box-sizing: inherit;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: $font;
   background: $login-bg;
   -webkit-touch-callout: none;
