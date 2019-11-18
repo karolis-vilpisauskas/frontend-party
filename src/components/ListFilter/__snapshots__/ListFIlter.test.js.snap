@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ServerFilter rendering it renders without crashing 1`] = `
+exports[`ListFilter rendering it renders without crashing 1`] = `
 <button
-  class="server-filter"
-  data-testid="server-filter"
+  class="list-filter"
+  data-testid="list-filter"
   type="button"
 >
   <svg
