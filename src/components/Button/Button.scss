@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  -ms-transition-property: none !important;
+  -o-transition:none;
   border: none;
   border-radius: 5px;
 
