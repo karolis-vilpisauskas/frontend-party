@@ -23,10 +23,6 @@ For further development of the application I believe there are still a few thing
 - Setup more SEO friendly dynamic title, content and icons
 - Switch from `SASS` to `styled-components`
 
-## Working on
-- IE 11 compatabilty
-- node-sass compiling for cross browser
-
 ## Commands
 
 Install all required dependencies:
