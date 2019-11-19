@@ -29,12 +29,12 @@ const Servers = () => {
   const [isNameAsc, setIsNameAsc] = useState(true);
   const [isDistAsc, setIsDistAsc] = useState(null);
 
-  const config = { mass: 5, tension: 2000, friction: 200 };
+  const config = { mass: 5, tension: 1000, friction: 200, duration: 1300 };
   const trail = useTrail(servers.length, {
     config,
     opacity: 1,
     x: 0,
-    from: { opacity: 0, x: -50 }
+    from: { opacity: 0, x: -20 }
   });
 
   useEffect(() => {
@@ -48,6 +48,8 @@ const Servers = () => {
       history.push("/");
     }
   }, [auth.isLoggedIn, history]);
+
+  useEffect(() => {}, [servers]);
 
   const handleLogout = useCallback(async () => {
     await dispatch(logout);
