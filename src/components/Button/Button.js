@@ -11,7 +11,7 @@ const Button = ({ onClick, children, styleClass, label, ...props }) => {
       data-testid="btn"
     >
       {children}
-      <span className="btn-label" data-testid="label">{label}</span>
+      <span className="btn-label">{label}</span>
     </button>
   );
 };
