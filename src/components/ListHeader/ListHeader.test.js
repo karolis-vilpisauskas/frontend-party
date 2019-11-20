@@ -1,33 +1,24 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
+import ReactDOM from "react-dom";
 import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import ListHeader from "./ListHeader";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<ListHeader />, div);
 });
 
-const renderTest = () => {
-  const props = createTestProps();
+it("renders list header correctly", () => {
   const { getByTestId } = render(
-    <ListHeader {...props}>
-      <div data-testid="child" />
+    <ListHeader>
+      <div data-testid="child-1"></div>
+      <div data-testid="child-2"></div>
     </ListHeader>
   );
-  const container = getByTestId("list-header");
-  return {
-    getByTestId,
-    container
-  };
-};
 
-describe("ListHeader", () => {
-  describe("rendering", () => {
-    test("it renders it's children", () => {
-      const { container, getByTestId } = renderTest();
-      expect(container.children.length).toBe(1);
-      expect(getByTestId("child")).toBeDefined();
-    });
-  });
+  expect(getByTestId("list-header").children.length).toBe(2);
+  expect(getByTestId("child-1")).toBeDefined();
 });
