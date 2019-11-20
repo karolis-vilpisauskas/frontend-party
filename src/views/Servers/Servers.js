@@ -49,8 +49,6 @@ const Servers = () => {
     }
   }, [auth.isLoggedIn, history]);
 
-  useEffect(() => {}, [servers]);
-
   const handleLogout = useCallback(async () => {
     await dispatch(logout);
   }, [dispatch]);
