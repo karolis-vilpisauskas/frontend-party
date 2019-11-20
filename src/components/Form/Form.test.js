@@ -1,33 +1,28 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import ReactDOM from "react-dom";
+import { render, cleanup, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Form from "./Form";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<Form />, div);
 });
 
-const renderTest = () => {
-  const props = createTestProps();
+it("renders form correctly", () => {
+  const fn = jest.fn();
   const { getByTestId } = render(
-    <Form {...props}>
-      <div data-testid="child" />
+    <Form onSubmit={fn} id="login-form">
+      <span data-testid="child-1"></span>
+      <span data-testid="child-2"></span>
     </Form>
   );
-  const container = getByTestId("form");
-  return {
-    getByTestId,
-    container
-  };
-};
+  fireEvent.submit(getByTestId("form"));
 
-describe("Form", () => {
-  describe("rendering", () => {
-    test("it renders it's children", () => {
-      const { container, getByTestId } = renderTest();
-      expect(container.children.length).toBe(1);
-      expect(getByTestId("child")).toBeDefined();
-    });
-  });
+  expect(getByTestId("form").children.length).toBe(2);
+  expect(getByTestId("child-1")).toBeDefined();
+  expect(getByTestId("form").id).toBe("login-form");
+  expect(fn).toHaveBeenCalled();
 });
