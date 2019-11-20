@@ -1,32 +1,32 @@
-import "@testing-library/jest-dom/extend-expect";
 import React from "react";
+import ReactDOM from "react-dom";
 import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import ListItem from "./ListItem";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props,
+const createTestProps = () => ({
   server: {
     name: "Server",
     distance: 546
   }
 });
 
-const renderTest = () => {
+it("renders without crashing", () => {
   const props = createTestProps();
-  const { getByTestId } = render(<ListItem {...props}></ListItem>);
-  const container = getByTestId("list-item");
-  return {
-    getByTestId,
-    container
-  };
-};
+  const div = document.createElement("div");
+  ReactDOM.render(<ListItem {...props} />, div);
+});
 
-describe("ListItem", () => {
-  describe("rendering", () => {
-    test("it renders without crashing", () => {
-      const { container } = renderTest();
-      expect(container).toMatchSnapshot();
-    });
-  });
+it("renders list header correctly", () => {
+  const props = createTestProps();
+  const { getByTestId } = render(<ListItem {...props} />);
+  const container = getByTestId("list-item");
+  const serverName = container.firstChild;
+  const serverDistance = container.lastChild;
+
+  expect(container.children.length).toBe(2);
+  expect(serverName).toHaveTextContent("Server");
+  expect(serverDistance).toHaveTextContent("546 km");
 });
