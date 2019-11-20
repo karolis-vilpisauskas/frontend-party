@@ -1,31 +1,35 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import ReactDOM from "react-dom";
+import { cleanup, render, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import ListFilter from "./ListFilter";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props
+const fn = jest.fn();
+
+const createTestProps = () => ({
+  handleFilter: fn,
+  value: "asc",
+  isAsc: true,
+  label: "filter"
 });
 
-const renderTest = () => {
-  const props = createTestProps();
-  const { getByTestId } = render(
-    <ListFilter {...props}>
-    </ListFilter>
-  );
-  const container = getByTestId("list-filter");
-  return {
-    getByTestId,
-    container
-  };
-};
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<ListFilter />, div);
+});
 
-describe("ListFilter", () => {
-  describe("rendering", () => {
-    test("it renders without crashing", () => {
-      const { container } = renderTest();
-      expect(container).toMatchSnapshot();
-    });
-  });
+it("renders list filter correctly", () => {
+  const props = createTestProps();
+  const { getByTestId } = render(<ListFilter {...props} />);
+  const button = getByTestId("list-filter");
+  const icon = button.childNodes[1];
+
+  fireEvent.click(button) ;
+
+  expect(button).toHaveTextContent("filter");
+  expect(button.value).toBe("asc");
+  expect(icon.classList.contains("is-active")).toBe(true);
+  expect(fn).toHaveBeenCalled();
 });
