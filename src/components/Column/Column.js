@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Column.scss";
 
 const Column = ({ alignment, children }) => {
-  return <div className={`column ${alignment}`} data-testid="column-container">{children}</div>;
+  return <div className={`column ${alignment}`} data-testid="column">{children}</div>;
 };
 
 export default Column;

@@ -1,33 +1,24 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
+import ReactDOM from "react-dom";
 import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Container from "./Container";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<Container />, div);
 });
 
-const renderTest = () => {
-  const props = createTestProps();
+it("renders containers children correctly", () => {
   const { getByTestId } = render(
-    <Container {...props}>
-      <div data-testid="child" />
+    <Container>
+      <div data-testid="child-1"></div>
+      <div data-testid="child-2"></div>
     </Container>
   );
-  const container = getByTestId("container");
-  return {
-    getByTestId,
-    container
-  };
-};
 
-describe("Container", () => {
-  describe("rendering", () => {
-    test("it renders it's children", () => {
-      const { container, getByTestId } = renderTest();
-      expect(container.children.length).toBe(1);
-      expect(getByTestId("child")).toBeDefined();
-    });
-  });
+  expect(getByTestId("container").children.length).toBe(2);
+  expect(getByTestId("child-1")).toBeDefined();
 });
