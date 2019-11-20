@@ -1,33 +1,30 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
+import ReactDOM from "react-dom";
 import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Absolute from "./Absolute";
+
 afterEach(cleanup);
 
 const createTestProps = props => ({
-  ...props
+  style: { opacity: 1 }
 });
 
-const renderTest = () => {
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<Absolute />, div);
+});
+
+it("renders absolute container correctly", () => {
   const props = createTestProps();
   const { getByTestId } = render(
     <Absolute {...props}>
-      <div data-testid="child" />
+      <div data-testid="child-1"></div>
+      <div data-testid="child-2"></div>
     </Absolute>
   );
-  const container = getByTestId("absolute-container");
-  return {
-    getByTestId,
-    container
-  };
-};
 
-describe("Absolute", () => {
-  describe("rendering", () => {
-    test("it renders it's children", () => {
-      const { container, getByTestId } = renderTest();
-      expect(container.children.length).toBe(1);
-      expect(getByTestId("child")).toBeDefined();
-    });
-  });
+  expect(getByTestId("absolute-container").children.length).toBe(2);
+  expect(getByTestId("absolute-container")).toHaveAttribute("style");
+  expect(getByTestId("child-1")).toBeDefined();
 });
