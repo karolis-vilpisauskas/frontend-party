@@ -1,31 +1,25 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
+import ReactDOM from "react-dom";
 import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Success from "./Success";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props
+const createTestProps = () => ({
+  message: "test"
 });
 
-const renderTest = () => {
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<Success />, div);
+});
+
+it("renders success correctly", () => {
   const props = createTestProps();
   const { getByTestId } = render(
-    <Success {...props}>
-    </Success>
+    <Success {...props} />
   );
-  const container = getByTestId("success");
-  return {
-    getByTestId,
-    container
-  };
-};
-
-describe("Success", () => {
-  describe("rendering", () => {
-    test("it renders without crashing", () => {
-      const { container } = renderTest();
-      expect(container).toMatchSnapshot();
-    });
-  });
+  expect(getByTestId("success")).toHaveTextContent("test");
+  expect(getByTestId("success").classList.contains('is-active')).toBe(true);
 });

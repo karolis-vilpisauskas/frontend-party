@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Success rendering it renders without crashing 1`] = `
-<div
-  class="success"
-  data-testid="success"
-/>
-`;
