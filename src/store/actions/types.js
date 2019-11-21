@@ -1,6 +1,5 @@
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
-export const UNAUTHORIZED = "UNAUTHORIZED";
 export const TOGGLE_LOADING_AUTH = "TOGGLE_LOADING_AUTH";
 export const TOGGLE_LOADING_SERVERS = "TOGGLE_LOADING_SERVERS";
 export const SET_ERRORS = "SET_ERRORS";
