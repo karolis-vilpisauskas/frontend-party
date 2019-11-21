@@ -19,7 +19,7 @@ it("renders without crashing", () => {
   ReactDOM.render(<ListItem {...props} />, div);
 });
 
-it("renders list header correctly", () => {
+it("renders list item correctly", () => {
   const props = createTestProps();
   const { getByTestId } = render(<ListItem {...props} />);
   const container = getByTestId("list-item");

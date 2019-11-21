@@ -1,31 +1,26 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from "react";
+import ReactDOM from "react-dom";
 import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Logo from "./Logo";
+
 afterEach(cleanup);
 
-const createTestProps = props => ({
-  ...props
+const createTestProps = () => ({
+  isBlack: true
 });
 
-const renderTest = () => {
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<Logo />, div);
+});
+
+it("renders logo correctly", () => {
   const props = createTestProps();
-  const { getByTestId } = render(
-    <Logo {...props}>
-    </Logo>
-  );
-  const container = getByTestId("logo");
-  return {
-    getByTestId,
-    container
-  };
-};
+  const { getByTestId } = render(<Logo {...props} />);
+  const logo = getByTestId("logo");
 
-describe("Logo", () => {
-  describe("rendering", () => {
-    test("it renders without crashing", () => {
-      const { container } = renderTest();
-      expect(container).toMatchSnapshot();
-    });
-  });
+  expect(logo.src).toBe("http://localhost/logo-black.png");
+  expect(logo.classList.contains("black")).toBe(true);
 });
+  
