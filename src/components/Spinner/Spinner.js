@@ -12,8 +12,8 @@ const Spinner = () => {
   });
 
   return (
-    <animated.div style={props} className="spinner-container" data-testid="spinner">
-      <div className="spinner">
+    <animated.div style={props} className="spinner-container">
+      <div className="spinner" data-testid="spinner">
         <div></div>
         <div></div>
         <div></div>
